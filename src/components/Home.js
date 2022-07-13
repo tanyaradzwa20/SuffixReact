@@ -22,11 +22,10 @@ export default function Home() {
                             <li><a href="">contact</a></li>
                         </ul>
                     <label htmlFor="chk" className="hide-menu-btn">
-                        <img src="margazine-images/Group 4.png" alt="" class="logo"/>
+                        <img src={process.env.PUBLIC_URL + '/margazine-images/Group 4.png'} alt="" class="logo"/>
                     </label>   
                 </ul>
             </div>
-
             <section className="section billboard">
             <div class="container-fluid">
                 <div className="row ">
