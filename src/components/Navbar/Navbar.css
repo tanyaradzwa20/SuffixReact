@@ -1,0 +1,30 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+    padding: 0 40px;
+    background-color: pink;
+}
+img{
+    width: 200px;
+    height: 90px;
+}
+ul{
+    display: flex;
+    margin-bottom: 0;
+}
+
+li{
+    list-style: none;
+    padding-right:50px ;
+}
+
+a{
+    color: black;
+    font-size: 20px;
+}
+a:hover{
+    /* font-weight: bold; */
+    color: black;
+}
