@@ -1,8 +1,13 @@
 import React from 'react'
 import './home.css'
+import Card from './Card'
+import MenuItem from './Navbar/MenuItem'
 
 export default function Home() {
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`
     return (
+        
         <div>
             <div className="header fixed-top">
                 <label htmlFor="chk" className="show-menu-btn"/>
@@ -14,13 +19,16 @@ export default function Home() {
                 </div> 
 
                 <ul className="menu">
-                        <ul>
-                            <li><a href="#">home</a></li>
-                            <li><a href="#featured">featured</a></li>
-                            <li><a href="">interviews</a></li>
-                            <li><a href="">news</a></li>
-                            <li><a href="">contact</a></li>
+                       <ul>
+                            {MenuItem.map((Item, index) =>{
+                            return(
+                                <li key={index}>
+                                    <a className={Item.cName} href={Item.url}>{Item.title} </a>
+                                </li>
+                                )
+                           })}
                         </ul>
+
                     <label htmlFor="chk" className="hide-menu-btn">
                         <img src={process.env.PUBLIC_URL + '/margazine-images/Group 4.png'} alt="" class="logo"/>
                     </label>   
@@ -52,64 +60,52 @@ export default function Home() {
                 <div className="container">
                     <h3>featured</h3>
                     <div className="row">
-                    
                         <div className="col-md-6">
-                            <div className="card margazine-card ">
-                            <img src="margazine-images/Screen Shot 2560-08-18 at 4.23.48 PM.png" alt="" className="large-img"/>
-                            <div className="inner-date d-flex ">
-                                <a href="">10/10/2020</a>
-                                <a href="" className="link">LIFESTYLE</a>
-                            </div>  
-                            <h2>Lorem ipsum dolor sit, amet elit consectetur adipisicing elit.</h2>
-                            <p>ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-                            </div>
-                    </div>
+                           <Card                        
+                                image = "margazine-images/Screen Shot 2560-08-18 at 4.23.48 PM.png"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='Lorem ipsum dolor sit, amet  elit consectetur adipisicing elit.'
+                                paragraph='ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.' >
+                            </Card>
+                        </div>
 
                         <div className="col-md-6">
-                            <div className="card margazine-card">
-                            <img src="margazine-images/photo-1492447166138-50c3889fccb1.png" alt="" className="large-img"/>
-                            <div className="inner-date d-flex">
-                                <a href="">10/10/2020</a>
-                                <a href="" className="link">LIFESTYLE</a>
-                            </div>   
-                            <h2>Lorem ipsum dolor sit, amet  elit consectetur adipisicing elit.</h2>
-                            <p>ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                            <Card                        
+                                image = "margazine-images/photo-1492447166138-50c3889fccb1.png"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='Lorem ipsum dolor sit, amet  elit consectetur adipisicing elit.'
+                                paragraph='ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.' >
+                            </Card>
                         </div>
-                    </div>
 
                         
                         <div className="col-md-4">
-                            <div className="card margazine-card  margazine-card-small">
-                            <img src="margazine-images/img-1.png" alt="" className="small-img"/>
-                            <div className="inner-date d-flex ">
-                                <a href="">10/10/2020</a>
-                                <a href="" className="link">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et accusamus et iusto</h3>
-                            </div>
+                            <Card                         
+                                image = "margazine-images/img-1.png"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
+
                         </div>
 
                         <div className="col-md-4">
-                            <div className="card margazine-card margazine-card-small">
-                            <img src="margazine-images/img-2.png" alt="" className="small-img "/>
-                            <div className="inner-date d-flex">
-                                <a href="">10/10/2020</a>
-                                <a href="" className="link">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et</h3>
-                            </div>
+                            <Card                         
+                                image = "margazine-images/img-2.png"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
                         </div>
-                    
-
                         <div className="col-md-4">
-                            <div className="card margazine-card margazine-card-small">
-                            <img src="margazine-images/img-3.png" alt="" className="small-img"/>
-                            <div className="inner-date d-flex">
-                                <a href="">10/10/2020</a>
-                                <a href="" className="link ">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et accusamus et iusto</h3>
-                        </div>
+                           <Card                         
+                                image = "margazine-images/img-3.png"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
                         </div>
                     </div>
                 <div className="see-all mt-3"><a href="" className="btn text-uppercase">see all</a></div>
@@ -136,37 +132,29 @@ export default function Home() {
                     <div className="row">
                         
                         <div className="col-md-4">
-                            <div className="card margazine-card  margazine-card-small">
-                            <img src="margazine-images/img-5.png" alt="" className="small-img"/>
-                            <div className="inner-date d-flex ">
-                                <a href="#">10/10/2020</a>
-                                <a href="#" className="link">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et accusamus et iusto</h3>
-                            </div>
+                            <Card                         
+                                image = "margazine-images/img-5.png"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
                         </div>
 
                         <div className="col-md-4">
-                            <div className="card margazine-card margazine-card-small">
-                            <img src="margazine-images/img-6.png" alt="" className="small-img "/>
-                            <div className="inner-date d-flex">
-                                <a href="#">10/10/2020</a>
-                                <a href="#" className="link">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et</h3>
-                            </div>
+                            <Card                         
+                                image = "margazine-images/img-6.png"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
                         </div>
-                    
-
                         <div className="col-md-4">
-                            <div className="card margazine-card margazine-card-small">
-                            <img src="margazine-images/img-7.png" alt="" className="small-img"/>
-                            <div className="inner-date d-flex">
-                                <a href="#">10/10/2020</a>
-                                <a href="#" className="link ">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et accusamus et iusto</h3>
-                        </div>
+                           <Card                         
+                                image = "margazine-images/img-7.png"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
                         </div>
                     </div>
                 <div className="see-all mt-3"><a href="#" className="btn text-uppercase">see all</a></div>
@@ -177,34 +165,28 @@ export default function Home() {
                     <h3 className="text-uppercase">news</h3>
                     <div className="row">
                         <div className="col-md-4">
-                            <div className="card margazine-card  margazine-card-small">
-                            <img src="margazine-images/Screen Shot 2560-08-18 at 4.39.04 PM Copy 3.jpg" alt="" className="small-img"/>
-                            <div className="inner-date d-flex ">
-                                <a href="#">10/10/2020</a>
-                                <a href="#" className="link">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et accusamus et iusto</h3>
-                            </div>
+                            <Card                         
+                                image = "margazine-images/Screen Shot 2560-08-18 at 4.39.04 PM Copy 3.jpg"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
                         </div>
                         <div className="col-md-4">
-                            <div className="card margazine-card margazine-card-small">
-                            <img src="margazine-images/Screen Shot 2560-08-18 at 4.38.56 PM Copy 5.jpg" alt="" className="small-img "/>
-                            <div className="inner-date d-flex">
-                                <a href="#">10/10/2020</a>
-                                <a href="#" className="link">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et</h3>
-                            </div>
+                            <Card                         
+                                image = "margazine-images/Screen Shot 2560-08-18 at 4.38.56 PM Copy 5.jpg"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
                         </div>
                         <div className="col-md-4">
-                            <div className="card margazine-card margazine-card-small">
-                            <img src="margazine-images/Screen Shot 2560-08-18 at 4.38.56 PM Copy 6.jpg" alt="" className="small-img"/>
-                            <div className="inner-date d-flex">
-                                <a href="#">10/10/2020</a>
-                                <a href="#" className="link ">LIFESTYLE</a>
-                            </div> 
-                            <h3 className="feature-h3">At vero eos et accusamus et iusto</h3>
-                        </div>
+                            <Card                         
+                                image = "margazine-images/Screen Shot 2560-08-18 at 4.38.56 PM Copy 6.jpg"
+                                date={date}
+                                heading='LIFESTYLE'
+                                mainHeading='At vero eos et accusamus et iusto'>
+                            </Card>
                         </div>
                     </div>
                 <div className="see-all mt-3"><a href="" className="btn text-uppercase">see all</a></div>
